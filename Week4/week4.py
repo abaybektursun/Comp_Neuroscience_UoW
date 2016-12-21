@@ -77,11 +77,11 @@ for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
     plt.subplot(220 + id + 1)
     for row in range(len(stimulus)):
         variance.append(np.var(a_neuron[:, row]))
-        mean_hz.append(np.mean(a_neuron[:, row]))
+        mean_hz.append(np.mean(a_neuron[:, row])/10)
         plt.plot(variance, mean_hz, 'ro')
 
     slope, intercept = np.polyfit(variance, mean_hz, 1)
-    plt.title('Neuron {0}: {1:.2f} | {2:.2f}'.format(id+1, round(slope/10, 2), round(intercept, 2)))
+    plt.title('Neuron {0}: {1:.2f} | {2:.2f}'.format(id+1, round(slope, 2), round(intercept, 2)))
 
 plt.show()
 
