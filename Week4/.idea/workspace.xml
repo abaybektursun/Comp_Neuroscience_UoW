@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b900d0c-42f6-4f58-aa06-66257234dad5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week4.py" afterPath="$PROJECT_DIR$/week4.py" />
-    </list>
+    <list default="true" id="0b900d0c-42f6-4f58-aa06-66257234dad5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +18,8 @@
       <file leaf-file-name="week4.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/week4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+            <state relative-caret-position="306">
+              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -339,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+        <state relative-caret-position="306">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
