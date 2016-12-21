@@ -2,6 +2,18 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Cartesian coordinates to polar coordinates
+def cart2pol(x, y):
+    rho = np.sqrt(x**2 + y**2)
+    phi = np.arctan2(y, x)
+    return(rho, phi)
+
+# Polar coordinates to cartesian coordinates
+def pol2cart(rho, phi):
+    x = rho * np.cos(phi)
+    y = rho * np.sin(phi)
+    return(x, y)
+
 # Load the data
 with open('tuning_3.4.pickle', 'rb') as f:
     data = pickle.load(f)
@@ -13,6 +25,7 @@ neuron4  = data['neuron4']
 stimulus = data['stim']
 
 num_experiments = len(neuron1)
+neurons_r_max   = []
 
 # Debug
 print ("Matrices:", data.keys())
@@ -28,6 +41,7 @@ for col in neuron1:
         experiment_sums[stim_idx] += a_rate
 
 experiment_means = experiment_sums / len(neuron1)
+neurons_r_max.append(max(experiment_means))
 
 plt.subplot(221)
 plt.plot(stimulus, experiment_means)
@@ -39,6 +53,7 @@ for col in neuron2:
         experiment_sums[stim_idx] += a_rate
 
 experiment_means = experiment_sums / len(neuron2)
+neurons_r_max.append(max(experiment_means))
 
 plt.subplot(222)
 plt.plot(stimulus, experiment_means)
@@ -50,6 +65,7 @@ for col in neuron3:
         experiment_sums[stim_idx] += a_rate
 
 experiment_means = experiment_sums / len(neuron3)
+neurons_r_max.append(max(experiment_means))
 
 plt.subplot(223)
 plt.plot(stimulus, experiment_means)
@@ -61,6 +77,7 @@ for col in neuron4:
         experiment_sums[stim_idx] += a_rate
 
 experiment_means = experiment_sums / len(neuron4)
+neurons_r_max.append(max(experiment_means))
 
 plt.subplot(224)
 plt.plot(stimulus, experiment_means)
@@ -121,3 +138,9 @@ print (c1)
 print (r2)
 print (c2)
 
+# Compute the Population vector
+
+# Sum projections of stimulus onto neuron bases
+population_vector = []
+for neuron_id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
+    (data['r1']/neurons_r_max[neuron_id])*data['c'+str(neuron_id+1)]
