@@ -12,6 +12,8 @@ neuron3  = data['neuron3']
 neuron4  = data['neuron4']
 stimulus = data['stim']
 
+num_experiments = len(neuron1)
+
 # Debug
 print ("Matrices:", data.keys())
 print ("Stimulus Vector:", data['stim'])
@@ -64,3 +66,58 @@ plt.subplot(224)
 plt.plot(stimulus, experiment_means)
 plt.title('Neuron 4')
 plt.show()
+
+# Check if all the neurons follow Poisson distribution
+# Variance vs mean rate
+# In poisson, slope should be close to 1
+
+for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
+    variance = []
+    mean_hz  = []
+    plt.subplot(220 + id + 1)
+    for row in range(len(stimulus)):
+        variance.append(np.var(a_neuron[:, row]))
+        mean_hz.append(np.mean(a_neuron[:, row]))
+        plt.plot(variance, mean_hz, 'ro')
+
+    slope, intercept = np.polyfit(variance, mean_hz, 1)
+    plt.title('Neuron {0}: {1:.2f} | {2:.2f}'.format(id+1, round(slope/10, 2), round(intercept, 2)))
+
+plt.show()
+
+
+for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
+    plt.subplot(220 + id + 1)
+    for idx in range(len(stimulus)):
+        plt.hist(a_neuron[:,idx])
+    plt.title('Neuron ' + str(id))
+
+plt.show()
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Load the data
+with open('pop_coding_3.4.pickle', 'rb') as f:
+    data = pickle.load(f)
+
+# Debug
+print ("Matrices:", data.keys())
+
+# r1, r2, r3, and r4 that contain the responses (firing rate in Hz) of the four neurons
+# c1, c2, c3, and c4 are the basis vectors corresponding to neurons
+
+r1 = data['r1']
+r2 = data['r2']
+r3 = data['r3']
+r4 = data['r4']
+c1 = data['c1']
+c2 = data['c2']
+c3 = data['c3']
+c4 = data['c4']
+
+print (r1)
+print (c1)
+
+print (r2)
+print (c2)
+
