@@ -1,4 +1,5 @@
 # Poisson Neuron Models and Population Coding
+For each of the neurons, we want to see the mean firing rate of the neuron as a function of the stimulus or the tuning curve
 ![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/tuning_curves.png)
 
 > Three of the neurons are Poisson neurons (they are accurately modeling using a Poisson process), but we believe that the remaining one might not be.
