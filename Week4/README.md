@@ -8,7 +8,7 @@ To see whether Neuron follows Poisson distribution, we plot time bin avergae spi
 ![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/poisson.png)
 ![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/hist.png)
 
-### Neurobiological Details
+# Neurobiological Details
 ![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/F1.large.png)
 > The cricket cercal system. (A) Acheta domestica. The cerci are the two antenna-like structures, covered with fine hairs, extending from the rear of the abdomen. This is a female: the ovipositor can be distinguished between the two cerci. (B) Scanning electron microscope close-up of a segment of the cercus. The cercus is approximately 1 cm in length. (C) Computer reconstructions of a primary sensory interneuron (blue) and three primary sensory afferents (red, light blue and brown) in their correct anatomical relationships. These cells were stained in different animals and the reconstructions were scaled and aligned to a common coordinate system. Scale: 40 μm between tick marks on the scale bars. The inset shows a cartoon of a cut-away view of the cricket nervous system. The terminal abdominal ganglion, where the sensory neurons and interneurons are located, is indicated with a red arrow. - Gwen A. Jacobs*, John P. Miller and Zane Aldworth; 2008; Computational mechanisms of mechanosensory processing in the cricket
 
