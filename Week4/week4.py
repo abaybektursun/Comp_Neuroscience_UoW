@@ -1,5 +1,7 @@
 import pickle
+import itertools
 import numpy as np
+from operator import add
 import matplotlib.pyplot as plt
 
 # Cartesian coordinates to polar coordinates
@@ -52,7 +54,7 @@ for col in neuron2:
     for stim_idx, a_rate in enumerate(col):
         experiment_sums[stim_idx] += a_rate
 
-experiment_means = experiment_sums / len(neuron2)
+experiment_means = experiment_sums  / len(neuron2)
 neurons_r_max.append(max(experiment_means))
 
 plt.subplot(222)
@@ -64,7 +66,7 @@ for col in neuron3:
     for stim_idx, a_rate in enumerate(col):
         experiment_sums[stim_idx] += a_rate
 
-experiment_means = experiment_sums / len(neuron3)
+experiment_means = experiment_sums  / len(neuron3)
 neurons_r_max.append(max(experiment_means))
 
 plt.subplot(223)
@@ -76,7 +78,7 @@ for col in neuron4:
     for stim_idx, a_rate in enumerate(col):
         experiment_sums[stim_idx] += a_rate
 
-experiment_means = experiment_sums / len(neuron4)
+experiment_means = experiment_sums  / len(neuron4)
 neurons_r_max.append(max(experiment_means))
 
 plt.subplot(224)
@@ -88,7 +90,7 @@ plt.show()
 # Variance vs mean rate
 # In poisson, slope should be close to 1
 
-for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
+for id, a_neuron in enumerate([neuron1, neuron2, neuron3, neuron4]):
     variance = []
     mean_hz  = []
     plt.subplot(220 + id + 1)
@@ -103,11 +105,11 @@ for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
 plt.show()
 
 
-for id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
+for id, a_neuron in enumerate([neuron1, neuron2, neuron3, neuron4]):
     plt.subplot(220 + id + 1)
     for idx in range(len(stimulus)):
         plt.hist(a_neuron[:,idx])
-    plt.title('Neuron ' + str(id))
+    plt.title('Neuron ' + str(id+1))
 
 plt.show()
 
@@ -141,6 +143,44 @@ print (c2)
 # Compute the Population vector
 
 # Sum projections of stimulus onto neuron bases
-population_vector = []
-for neuron_id, a_neuron in enumerate([neuron1,neuron2,neuron3,neuron4]):
-    (data['r1']/neurons_r_max[neuron_id])*data['c'+str(neuron_id+1)]
+
+population_vectors_x = []
+population_vectors_y = []
+angles               = []
+for trial_num in range (len(r1)):
+    popSum = [0, 0]
+    for neuron_id, a_neuron in enumerate([neuron1, neuron2, neuron3, neuron4]):
+        popSum = [sum(vec) for vec in zip(popSum, (data['r'+str(neuron_id+1)][trial_num]/neurons_r_max[neuron_id])*np.array(data['c'+str(neuron_id+1)]))]
+        #popSum = [sum(vec) for vec in zip(
+        #    popSum,
+        #    [x * (data['r'+str(neuron_id+1)][trial_num]/neurons_r_max[neuron_id]) for x in data['c'+str(neuron_id+1)]]
+        #)]
+
+    print (popSum)
+    population_vectors_x.append(popSum[0])
+    population_vectors_y.append(popSum[1])
+
+    angles.append(np.rad2deg(cart2pol(popSum[0],popSum[1])[1]))
+
+print(angles)
+
+print("Mean angle: " + str(np.mean(angles)%360))
+print("Mean angle 2: " + str(360 + np.mean(angles)))
+
+print("New Mean angle: " + str(
+    np.rad2deg(
+        cart2pol(
+            np.mean(population_vectors_x),
+            np.mean(population_vectors_y)
+        )[1]
+    )%360)
+)
+
+# test
+popSum = [0, 0]
+for neuron_id, a_neuron in enumerate([neuron1, neuron2, neuron3, neuron4]):
+    popSum = [sum(vec) for vec in zip(popSum, (np.mean(data['r' + str(neuron_id + 1)]) / neurons_r_max[neuron_id]) * np.array(data['c' + str(neuron_id + 1)]) )]
+
+print (np.rad2deg(cart2pol(popSum[0],popSum[1])[1])%360)
+print ("0 to point in the direction of the positive y-axis and 90 to point in the direction of the positive x-axis: ", 90 - np.rad2deg(cart2pol(popSum[0],popSum[1])[1]))
+print ("Convention: ", 90 - np.mean(angles))
