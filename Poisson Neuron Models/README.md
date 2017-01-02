@@ -1,17 +1,17 @@
 # Poisson Neuron Models and Population Coding
 For each of the neurons, we want to see the mean firing rate of the neuron as a function of the stimulus or the tuning curve
-![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/tuning_curves.png)
+![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Poisson%20Neuron%20Models/imgs/tuning_curves.png)
 
 > Three of the neurons are Poisson neurons (they are accurately modeling using a Poisson process), but we believe that the remaining one might not be.
 
 To see whether Neuron follows Poisson distribution, we plot time bin avergae spikes against skpike variance in those time bins. If the distribution is Poisson, the plot slope will be constant fano factor, so it's expected to equal 1
-![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/poisson.png)
-![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/hist.png)
+![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Poisson%20Neuron%20Models/imgs/poisson.png)
+![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Poisson%20Neuron%20Models/imgs/hist.png)
 
 # Neurobiological Details
-![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/F1.large.png)
+![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Poisson%20Neuron%20Models/imgs/F1.large.png)
 > The cricket cercal system. (A) Acheta domestica. The cerci are the two antenna-like structures, covered with fine hairs, extending from the rear of the abdomen. This is a female: the ovipositor can be distinguished between the two cerci. (B) Scanning electron microscope close-up of a segment of the cercus. The cercus is approximately 1 cm in length. (C) Computer reconstructions of a primary sensory interneuron (blue) and three primary sensory afferents (red, light blue and brown) in their correct anatomical relationships. These cells were stained in different animals and the reconstructions were scaled and aligned to a common coordinate system. Scale: 40 μm between tick marks on the scale bars. The inset shows a cartoon of a cut-away view of the cricket nervous system. The terminal abdominal ganglion, where the sensory neurons and interneurons are located, is indicated with a red arrow. - Gwen A. Jacobs*, John P. Miller and Zane Aldworth; 2008; Computational mechanisms of mechanosensory processing in the cricket
 
-![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Week4/imgs/F3.large.png)
+![Alt text](https://raw.githubusercontent.com/abaybektursun/Comp_Neuroscience_UoW/master/Poisson%20Neuron%20Models/imgs/F3.large.png)
 
 > Directional tuning curve for interneuron 10-2a. (A) Single puffs of air from eight different directions relative to the cricket (top traces) elicit various patterns of spiking activity (bottom traces) in an interneuron of class R10-2a. Scale bar: x 10 ms, y 875 mm s–1 (stimulus)/10 mV (intracellular membrane potential). (B) To generate the tuning curve the same cell as in A was presented with 10 stimuli from each of 24 different directions in the horizontal plane (15° separation between samples). The number of spikes elicited in the 60 ms window following stimulus onset was counted for each trial, and mean and s.d. across trials is shown as a function of stimulus direction. The spontaneous firing rate of the cell was also determined, and the gray broken line shows the expected number of spontaneous spikes in a 60 ms window. Note that stimuli from angles –15° to 105° inhibit the firing activity of this cell below the spontaneous rate, which can also be seen as a slight hyperpolarization in the membrane potentials of A. (C) The mean values from B, plotted in polar instead of Cartesian coordinates. - Gwen A. Jacobs*, John P. Miller and Zane Aldworth; 2008; Computational mechanisms of mechanosensory processing in the cricket
