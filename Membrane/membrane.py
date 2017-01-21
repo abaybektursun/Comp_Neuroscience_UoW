@@ -1,12 +1,4 @@
 from __future__ import print_function
-"""
-Created on Wed Apr 22 15:53:00 2015
-
-Charging and discharging curves for passive membrane patch
-R Rao 2007
-
-translated to Python by rkp 2015
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,8 +8,10 @@ I = 10 # nA
 
 # capacitance and leak resistance
 
-C = 0.1 # nF
-R = 100 # M ohms
+#C = 0.1 # nF
+C = 0.1/10.0 # nF
+#R = 100 # M ohms
+R = 100*10 # M ohms
 tau = R*C # = 0.1*100 nF-Mohms = 100*100 pF Mohms = 10 ms
 print('C = %.3f nF' % C)
 print('R = %.3f M ohms' % R)
@@ -50,7 +44,8 @@ for t in np.arange(h, tstop, h):
    
    # Stop current injection 
    if t >= 0.6*tstop:
-     I = 0
+     #I = 0
+     pass
 
    V_trace += [V]
    if t % 10 == 0:
